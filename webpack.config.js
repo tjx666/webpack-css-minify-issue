@@ -31,7 +31,6 @@ const config = {
                             colormin: {
                                 transparent: false,
                             },
-                            discardComments: { removeAll: false },
                         },
                     ],
                 },
