@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "browserslist": "Chrome > 61",
   "scripts": {
     "build": "webpack -c webpack.config.js"
   },
@@ -11,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "browserslist": "4.21.4",
     "css-loader": "6.7.1",
     "css-minimizer-webpack-plugin": "4.1.0",
     "lightningcss": "1.16.0",

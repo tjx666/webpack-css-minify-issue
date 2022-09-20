@@ -2,6 +2,8 @@ const { resolve } = require('node:path');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const css = require('lightningcss')
+const browserslist = require('browserslist')
 
 /**@type {import('webpack').Configuration}*/
 const config = {
@@ -24,13 +26,15 @@ const config = {
         minimizer: [
             new TerserPlugin(),
             new CssMinimizerPlugin({
+                minify: CssMinimizerPlugin.lightningCssMinify,
                 minimizerOptions: {
+                    targets: {
+                        Chrome: css.browserslistToTargets(browserslist('Chrome > 60')),
+                    },
                     preset: [
                         'default',
                         {
-                            colormin: {
-                                transparent: false,
-                            },
+                            discardComments: { removeAll: true },
                         },
                     ],
                 },
